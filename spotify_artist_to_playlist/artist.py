@@ -11,4 +11,5 @@ def albums_by_artist(artist_id: str, headers: dict) -> Artist:
     url = f"https://api.spotify.com/v1/artists/{artist_id}"
     r = requests.get(url, headers=headers)
     data = r.json()
+
     return Artist(id, data['name'])
