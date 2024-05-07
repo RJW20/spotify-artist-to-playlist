@@ -17,4 +17,7 @@ def get_user_id(headers: dict) -> str:
     r = requests.get(url, headers=headers)
     data = r.json()
 
-    return data['id']
+    try:
+        return data['id']
+    except KeyError:
+        raise ValueError('Unable to find the user with given sp_dc cookie, please check you have provided the correct value.')

@@ -12,4 +12,7 @@ def get_artist(artist_id: str, headers: dict) -> Artist:
     r = requests.get(url, headers=headers)
     data = r.json()
 
-    return Artist(artist_id, data['name'])
+    try:
+        return Artist(artist_id, data['name'])
+    except KeyError:
+        raise ValueError(f'Unable to find Artist with id {artist_id}, please check you have provided the correct value.')
