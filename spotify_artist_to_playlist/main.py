@@ -1,9 +1,9 @@
-from settings import settings
-from authentication import get_token, get_user_id
-from artist import get_artist
-from albums import albums_by_artist
-from tracks import tracks_by_albums, alphabetize, remove_duplicates, chronologize
-from playlist import create_playlist, add_tracks
+from spotify_artist_to_playlist.settings import settings
+from spotify_artist_to_playlist.authentication import get_token, get_user_id
+from spotify_artist_to_playlist.artist import get_artist
+from spotify_artist_to_playlist.albums import albums_by_artist
+from spotify_artist_to_playlist.tracks import tracks_by_albums, alphabetize, remove_duplicates, chronologize
+from spotify_artist_to_playlist.playlist import create_playlist, add_tracks
 
 
 def main() -> None:

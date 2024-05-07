@@ -2,7 +2,7 @@ from collections import namedtuple
 
 import requests
 
-from albums import Album
+from spotify_artist_to_playlist.albums import Album
 
 
 Track = namedtuple('Track', ['uri', 'name', 'release_date', 'disc_no', 'track_no'])

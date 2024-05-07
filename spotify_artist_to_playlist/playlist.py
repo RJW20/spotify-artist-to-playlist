@@ -2,7 +2,7 @@ import json
 
 import requests
 
-from tracks import Track
+from spotify_artist_to_playlist.tracks import Track
 
 
 def create_playlist(user_id: int, name: str, artist_name: str, headers: dict) -> str:

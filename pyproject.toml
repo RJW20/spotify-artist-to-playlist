@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "spotify-artist-to-playlist"
 version = "0.1.0"
-description = "A python script that takes an artist on Spotify and creates a playlist on your Spotify account that contains all of their songs, sorted alphabetically."
+description = "A python script that takes an artist on Spotify and creates a playlist on your Spotify account containing all of their non-duplicate songs, sorted by album."
 authors = ["RJW20"]
 readme = "README.md"
 
@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.12.3"
 requests = "^2.31.0"
 
+[tool.poetry.scripts]
+main = "spotify_artist_to_playlist.main:main"
 
 [build-system]
 requires = ["poetry-core"]
