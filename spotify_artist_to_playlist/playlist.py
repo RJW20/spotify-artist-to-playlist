@@ -1,4 +1,5 @@
 import json
+from itertools import batched
 
 import requests
 
@@ -27,9 +28,7 @@ def add_tracks(playlist_id: str, tracks: list[Track], headers: dict) -> None:
 
     url = f'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'
     track_uris = [track.uri for track in tracks]
-    request_no = len(track_uris) // 100 + 1
-    for i in range(request_no):
-        uris_to_post = track_uris[i*100:min((i+1)*100, len(track_uris))]
-        requests.post(url, headers=headers, data=json.dumps(uris_to_post))
+    for batch in batched(track_uris, 100):
+        requests.post(url, headers=headers, data=json.dumps(batch))
                                   
     return
