@@ -61,7 +61,8 @@ def remove_duplicates(tracks: list[Track], version_types: list[str]) -> None:
     When removing duplicates, the Track that appears first in the list is the one that will persist.
     """
 
-    for i in range(len(tracks) - 1):
+    i = 0
+    while i < len(tracks) - 1:
         
         track = tracks[i]
 
@@ -86,6 +87,8 @@ def remove_duplicates(tracks: list[Track], version_types: list[str]) -> None:
                 if version_type in matching_track.name[n:]:
                     tracks.pop(i+j)
                     break
+
+        i += 1
 
 def chronologize(tracks: list[Track]) -> None:
     """Sort the given list of Tracks (in-place) by release_date (primary), by disc_no (secondary) and by track_no (tertiary)."""
